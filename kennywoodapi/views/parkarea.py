@@ -92,11 +92,10 @@ class ParkAreas(ViewSet):
         Returns:
             Response -- JSON serialized list of park areas
         """
-        # The Object Relational Mapper (ORM) that Django provides that queries the table holding all the park areas and returns every row. It is the equivalent of you explicitly writing SQL. (Nashville Software School, Chapter Docs)
         areas = ParkArea.objects.all()
         serializer = ParkAreaSerializer(
-            areas,
-            many=True,
+            areas, 
+            many=True, 
             context={'request': request}
         )
         return Response(serializer.data)
